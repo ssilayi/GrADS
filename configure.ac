@@ -632,7 +632,7 @@ fi
 echo 
 echo hdf5
 echo ----
-if false ; then 
+if test "Z$ga_supplib_dir" != "Z" ; then 
   if test "$have_zlib" = "yes" ; then
     echo looking in $ga_supplib_dir 
     GA_SET_FLAGS([])
@@ -650,7 +650,7 @@ if false ; then
   fi
 fi
 # check in system locations
-if false ; then
+if test "$use_hdf5" != "yes" -a "$ga_dyn_supplibs" = "yes" ; then
   echo looking in other system locations
   AC_CHECK_HDF5([
     use_hdf5='yes'
@@ -734,8 +734,8 @@ echo netcdf
 echo ------
 # JMA We could support netcdf (without sdf/xdfopen) if udunits is unavailable.
 # JMA For now, the "#ifdef USENETCDF" code block requires udunits, so we put that test at the top.
-if false ; then
-  if false ; then
+if test "$have_udunits" = "yes" ; then
+  if test "Z$ga_supplib_dir" != "Z" ; then
     echo looking in $ga_supplib_dir 
     GA_SET_FLAGS([])
     AC_CHECK_HEADER([netcdf.h],
@@ -761,7 +761,7 @@ if false ; then
     ])
   fi
 # check in system locations
-  if false ; then
+  if test "$ga_dyn_supplibs" = "yes" ; then
     if test $use_nc != "yes" ; then
       echo looking in other system locations
       AC_CHECK_NETCDF([
