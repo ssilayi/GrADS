@@ -292,7 +292,7 @@ echo
 echo readline
 echo --------
 # check in supplibs directory 
-if test "Z$ga_supplib_dir" != "Z" ; then 
+if false ; then 
   echo looking in $ga_supplib_dir
   GA_SET_FLAGS([])
   AC_CHECK_HEADER(readline/readline.h,
@@ -312,7 +312,7 @@ if test "Z$ga_supplib_dir" != "Z" ; then
 fi
 
 # check in system locations
-if test "$use_readline" != "yes" -a "$ga_dyn_supplibs" = "yes" ; then
+if false ; then
   echo looking in other system locations
   AX_LIB_READLINE([use_readline=yes readline_libs=$READLINE_LIBS],[])
 fi
@@ -336,7 +336,7 @@ echo
 echo geotiff
 echo -------
 # check in supplibs directory 
-if test "Z$ga_supplib_dir" != "Z" ; then 
+if false ; then 
   echo looking in $ga_supplib_dir
   GA_SET_FLAGS([],[],[],[-ltiff])
   AC_CHECK_HEADER(geotiff.h,
@@ -355,7 +355,7 @@ if test "Z$ga_supplib_dir" != "Z" ; then
   GA_UNSET_FLAGS
 fi
 # check in system locations
-if test "$use_geotiff" != "yes" -a "$ga_dyn_supplibs" = "yes" ; then
+if false ; then
   echo looking in other system locations
   AC_CHECK_GEOTIFF(
   [ LDFLAGS="$LDFLAGS $GEOTIFF_LDFLAGS"
@@ -382,7 +382,7 @@ echo
 echo shapefiles
 echo ----------
 # check in supplibs directory 
-if test "Z$ga_supplib_dir" != "Z" ; then 
+if false ; then 
   echo looking in $ga_supplib_dir
   GA_SET_FLAGS([])
   AC_CHECK_HEADER([shapefil.h], 
@@ -396,7 +396,7 @@ if test "Z$ga_supplib_dir" != "Z" ; then
   GA_UNSET_FLAGS
 fi
 # check in system locations
-if test "$use_shp" != "yes" -a "$ga_dyn_supplibs" = "yes" ; then
+if false ; then
   echo looking in other system locations
   GA_CHECK_LIB_SHP([
     use_shp=yes 
@@ -499,7 +499,7 @@ echo
 echo gd
 echo --
 # check in supplibs directory 
-if test "Z$ga_supplib_dir" != "Z" ; then 
+if false ; then 
   echo looking in $ga_supplib_dir 
   if test "$have_png" = "yes" -a "$have_zlib" = "yes" -a "$have_jpeg" = "yes" ; then
     GA_SET_FLAGS([])
@@ -516,7 +516,7 @@ if test "Z$ga_supplib_dir" != "Z" ; then
   fi 
 fi
 # check in system locations
-if test "$use_gd" != "yes" -a "$ga_dyn_supplibs" = "yes" ; then
+if false ; then
   echo looking in other system locations
   GA_CHECK_LIB_GD(
   [ use_gd=yes 
@@ -539,7 +539,7 @@ fi
 echo 
 echo grib2
 echo -----
-if test "Z$ga_supplib_dir" != "Z" ; then 
+if false ; then 
   if test "$have_zlib" = "yes" -a "$have_png" = "yes" -a "$have_jasper" = "yes" ; then
   echo looking in $ga_supplib_dir 
     GA_SET_FLAGS([])
@@ -554,7 +554,7 @@ if test "Z$ga_supplib_dir" != "Z" ; then
   fi
 fi
 # check in system locations
-if test "$use_grib2" != "yes" -a "$ga_dyn_supplibs" = "yes" ; then
+if false ; then
   echo looking in other system locations
   GA_CHECK_LIB_GRIB2(
   [ use_grib2=yes 
@@ -632,7 +632,7 @@ fi
 echo 
 echo hdf5
 echo ----
-if test "Z$ga_supplib_dir" != "Z" ; then 
+if false ; then 
   if test "$have_zlib" = "yes" ; then
     echo looking in $ga_supplib_dir 
     GA_SET_FLAGS([])
@@ -650,7 +650,7 @@ if test "Z$ga_supplib_dir" != "Z" ; then
   fi
 fi
 # check in system locations
-if test "$use_hdf5" != "yes" -a "$ga_dyn_supplibs" = "yes" ; then
+if false ; then
   echo looking in other system locations
   AC_CHECK_HDF5([
     use_hdf5='yes'
@@ -695,7 +695,7 @@ fi
 echo 
 echo hdf4
 echo ----
-if test "Z$ga_supplib_dir" != "Z" ; then 
+if false ; then 
   if test "$have_zlib" = "yes" -a "$have_jpeg" = "yes" -a "$have_udunits" = "yes" ; then
     echo looking in $ga_supplib_dir 
     GA_SET_FLAGS([], [], [], [-ldf])
@@ -710,7 +710,7 @@ if test "Z$ga_supplib_dir" != "Z" ; then
   fi
 fi
 # check in system locations
-if test $use_hdf != "yes" -a "$have_udunits" = "yes" -a "$ga_dyn_supplibs" = "yes" ; then
+if false ; then
   echo looking in other system locations
   AC_CHECK_HDF4_NETCDF([use_hdf=yes], [use_hdf=yes])
   if test "$use_hdf" = 'yes'; then
@@ -734,8 +734,8 @@ echo netcdf
 echo ------
 # JMA We could support netcdf (without sdf/xdfopen) if udunits is unavailable.
 # JMA For now, the "#ifdef USENETCDF" code block requires udunits, so we put that test at the top.
-if test "$have_udunits" = "yes" ; then
-  if test "Z$ga_supplib_dir" != "Z" ; then
+if false ; then
+  if false ; then
     echo looking in $ga_supplib_dir 
     GA_SET_FLAGS([])
     AC_CHECK_HEADER([netcdf.h],
@@ -761,7 +761,7 @@ if test "$have_udunits" = "yes" ; then
     ])
   fi
 # check in system locations
-  if test "$ga_dyn_supplibs" = "yes" ; then
+  if false ; then
     if test $use_nc != "yes" ; then
       echo looking in other system locations
       AC_CHECK_NETCDF([
@@ -806,8 +806,8 @@ fi
 echo 
 echo gadap
 echo -----
-if test "x$with_gadap" != xno ; then
-  if test "Z$ga_supplib_dir" != "Z" ; then 
+if false ; then
+  if false ; then 
     if test "$have_curl" = "yes" -a "$have_xml2" = "yes" -a "$have_zlib" = "yes" ; then
       echo looking in $ga_supplib_dir 
       GA_SET_FLAGS([],[],[],[-lz])
@@ -850,7 +850,7 @@ fi
 echo 
 echo gui
 echo ---
-if test "$use_gui" != "yes" -a "$ga_dyn_supplibs" = "yes" ; then
+if false ; then
   echo looking in system locations
   GA_CHECK_GUI([
     use_gui=yes
