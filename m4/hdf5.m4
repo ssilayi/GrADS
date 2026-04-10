@@ -36,7 +36,9 @@ AC_DEFUN([AC_CHECK_HDF5],
       AC_CHECK_HDF5_LIB([ac_hdf5_lib_ok='yes'])
     ],
     [
-      for ac_hdf5_libdir in "" /usr/local/hdf5/lib64/ /opt/hdf5/lib64 /usr/hdf5/lib64 \
+      h5_pkg_libdir=`pkg-config hdf5 --variable=libdir 2>/dev/null`
+      for ac_hdf5_libdir in "" "$h5_pkg_libdir" "$HDF5_DIR/lib" "$HDF5_DIR/lib64" \
+       /usr/local/hdf5/lib64/ /opt/hdf5/lib64 /usr/hdf5/lib64 \
        /usr/local/lib64/hdf5 /opt/lib64/hdf5 /usr/lib64/hdf5 /usr/lib64 \
        /usr/local/hdf5/lib/ /opt/hdf5/lib /usr/hdf5/lib \
        /usr/local/lib/hdf5 /opt/lib/hdf5 /usr/lib/hdf5 /usr/lib ; do
@@ -64,7 +66,9 @@ AC_DEFUN([AC_CHECK_HDF5],
        AC_CHECK_HEADER_NOCACHE_HDF5([hdf5.h],[ac_hdf5_h='yes'])
     ],
     [
-      for ac_hdf5_incdir in "" /usr/include /usr/local/hdf5/include \
+      h5_pkg_incdir=`pkg-config hdf5 --variable=includedir 2>/dev/null`
+      for ac_hdf5_incdir in "" "$h5_pkg_incdir" "$HDF5_DIR/include" \
+       /usr/include /usr/local/hdf5/include \
        /opt/hdf5/include /usr/hdf5/include /usr/local/include/hdf5 \
        /opt/include/hdf5 /usr/include/hdf5 ; do
         AS_IF([test "z$ac_hdf5_incdir" = 'z'],

@@ -67,7 +67,8 @@ dnl  AC_LINK_IFELSE([AC_LANG_CALL([],[$ac_check_func_checked])],
         ])
     ],
     [
-      for ac_netcdf_libdir in "" \
+      nc_pkg_libdir=`nc-config --libdir 2>/dev/null`
+      for ac_netcdf_libdir in "" "$nc_pkg_libdir" "$NETCDF_DIR/lib" "$NETCDF_DIR/lib64" \
        /usr/lib64 \
        /usr/local/netcdf-${ac_check_nc_interface}/lib64 \
        /opt/netcdf-${ac_check_nc_interface}/lib64 \
@@ -126,7 +127,8 @@ dnl we have to avoid the autoconf internal cache in that case
         [$ac_check_nc_interface])
     ],
     [
-      for ac_netcdf_incdir in "" \
+      nc_pkg_incdir=`nc-config --includedir 2>/dev/null`
+      for ac_netcdf_incdir in "" "$nc_pkg_incdir" "$NETCDF_DIR/include" \
        /usr/local/netcdf-${ac_check_nc_interface}/include \
        /opt/netcdf-${ac_check_nc_interface}/include \ 
        /usr/netcdf-${ac_check_nc_interface}/include \
